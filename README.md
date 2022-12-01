@@ -1,1 +1,1 @@
-# Word-Count-plugin
+# Word Count plugin
