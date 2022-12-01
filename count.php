@@ -46,15 +46,15 @@ class WordCountAndTimePlugin {
       }
 
       if(get_option('wcp_wordcount', 1)){
-        $html .= __('This post has', 'wcpdomain') . ' ' . $wordcount . ' ' . __('words','wcpdomain') . '<br>';
+        $html .= esc_html__('This post has', 'wcpdomain') . ' ' . $wordcount . ' ' . esc_html__('words','wcpdomain') . '<br>';
       }
 
       if(get_option('wcp_charactercount', 1)){
-        $html .= __('This post has', 'wcpdomain') .' ' . strlen(strip_tags($content)) . __('characters', 'wcpdomain') . '<br>';
+        $html .= esc_html__('This post has', 'wcpdomain') .' ' . strlen(strip_tags($content)) . __('characters', 'wcpdomain') . '<br>';
       }
 
       if(get_option('wcp_readtime', 1)){
-        $html .= __('This will take about', 'wcpdomain') . round($wordcount/255) . __('minute(s) to read', 'wcpdomain') .'<br>';
+        $html .= esc_html__('This will take about', 'wcpdomain') . round($wordcount/255) . esc_html__('minute(s) to read', 'wcpdomain') .'<br>';
       }
 
       $html .='</p>';
