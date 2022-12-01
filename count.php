@@ -3,11 +3,13 @@
  * Plugin Name: Word Count plugin
  * Description: A truly amazing plugin for post word count, and read time approximation.
  * Version: 1.0.0
- * Author: mikekipruto
+ * Author: Mike Kipruto
  * Author URI: https://kipmyk.co.ke/
  * Text Domain: wcpdomain
  * Domain Path: /languages
  */
+
+if(!defined('ABSPATH')) exit; //exist if access directly
 
 class WordCountAndTimePlugin {
    function __construct() {
@@ -46,15 +48,15 @@ class WordCountAndTimePlugin {
       }
 
       if(get_option('wcp_wordcount', 1)){
-        $html .= esc_html__('This post has', 'wcpdomain') . ' ' . $wordcount . ' ' . esc_html__('words','wcpdomain') . '<br>';
+        $html .= esc_html__('This post has', 'wcpdomain') . ' ' . '<b>'. $wordcount . '</b>'.' ' . esc_html__('words','wcpdomain') . '<br>';
       }
 
       if(get_option('wcp_charactercount', 1)){
-        $html .= esc_html__('This post has', 'wcpdomain') .' ' . strlen(strip_tags($content)) . __('characters', 'wcpdomain') . '<br>';
+        $html .= esc_html__('This post has', 'wcpdomain') .' ' . '<b>'. strlen(strip_tags($content)) . '</b>'. ' ' . __('characters', 'wcpdomain') . '<br>';
       }
 
       if(get_option('wcp_readtime', 1)){
-        $html .= esc_html__('This will take about', 'wcpdomain') . round($wordcount/255) . esc_html__('minute(s) to read', 'wcpdomain') .'<br>';
+        $html .= esc_html__('This will take about', 'wcpdomain') .' ' . '<b>'.round($wordcount/255).'</b>' .' ' . esc_html__('minute(s) to read', 'wcpdomain') .'<br>';
       }
 
       $html .='</p>';
