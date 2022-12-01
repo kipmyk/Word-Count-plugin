@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Word Count plugin
- * Description: Creating plugin settings with React JS.
+ * Description: A truly amazing plugin for post word count, and read time approximation.
  * Version: 1.0.0
  * Author: mikekipruto
  * Author URI: https://kipmyk.co.ke/
