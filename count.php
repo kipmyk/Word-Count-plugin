@@ -19,7 +19,7 @@ class WordCountAndTimePlugin {
    // adding to single posts and if checked.
 
    function ifWrap($content){
-      if((is_main_query() AND is_single()) AND 
+      if(is_main_query() AND is_single() AND 
       (
          get_option('wcp_wordcount', 1) OR 
          get_option('wcp_charactercount', 1) OR 
@@ -31,9 +31,34 @@ class WordCountAndTimePlugin {
    }
 
    function createHTML($content){ 
-      $html = '<h3>'. get_option('wcp_headline', 'Post Statitics') . '</h3> <p>';
+      $html = '<h3>'. esc_html( get_option('wcp_headline', 'Post Statitics') ) . '</h3> <p>';
 
-      return $content . $html;
+      // grab the word count and save it to the variable.
+
+      if(get_option('wcp_wordcount', 1) OR get_option('wcp_readtime', 1)){
+        $wordcount = str_word_count(strip_tags($content));
+      }
+
+      if(get_option('wcp_wordcount', 1)){
+        $html .= 'This post has ' . $wordcount . ' words.<br>';
+      }
+
+      if(get_option('wcp_charactercount', 1)){
+        $html .= 'This post has ' . strlen(strip_tags($content)) . ' characters.<br>';
+      }
+
+      if(get_option('wcp_readtime', 1)){
+        $html .= 'This will take about ' . round($wordcount/255) . ' minute(s) to read.<br>';
+      }
+
+      $html .='</p>';
+
+      // add to the beginning of the blog content
+      if(get_option( 'wcp_location', '0') == '0'){
+        return  $html . $content;
+      }
+      // add to the beginning of the blog content
+      return  $content . $html;
    }
 
    function settings() {
