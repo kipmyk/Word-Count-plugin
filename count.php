@@ -5,8 +5,8 @@
  * Version: 1.0.0
  * Author: mikekipruto
  * Author URI: https://kipmyk.co.ke/
- * Text Domain: wordcount
- * 
+ * Text Domain: wcpdomain
+ * Domain Path: /languages
  */
 
 class WordCountAndTimePlugin {
@@ -14,7 +14,13 @@ class WordCountAndTimePlugin {
      add_action('admin_menu', array($this, 'adminPage'));
      add_action('admin_init', array($this, 'settings'));
      add_filter( 'the_content', array($this, 'ifWrap'));
+     add_action( 'init', array($this, 'languages') );
    }
+
+  //  handle translation
+  function languages(){
+    load_plugin_textdomain( 'wcpdomain', false, dirname(plugin_basename( __FILE__ )).'/languages');
+  }
 
    // adding to single posts and if checked.
 
@@ -40,15 +46,15 @@ class WordCountAndTimePlugin {
       }
 
       if(get_option('wcp_wordcount', 1)){
-        $html .= 'This post has ' . $wordcount . ' words.<br>';
+        $html .= __('This post has', 'wcpdomain') . ' ' . $wordcount . ' ' . __('words','wcpdomain') . '<br>';
       }
 
       if(get_option('wcp_charactercount', 1)){
-        $html .= 'This post has ' . strlen(strip_tags($content)) . ' characters.<br>';
+        $html .= __('This post has', 'wcpdomain') .' ' . strlen(strip_tags($content)) . __('characters', 'wcpdomain') . '<br>';
       }
 
       if(get_option('wcp_readtime', 1)){
-        $html .= 'This will take about ' . round($wordcount/255) . ' minute(s) to read.<br>';
+        $html .= __('This will take about', 'wcpdomain') . round($wordcount/255) . __('minute(s) to read', 'wcpdomain') .'<br>';
       }
 
       $html .='</p>';
@@ -124,7 +130,7 @@ class WordCountAndTimePlugin {
     <?php }
   
     function adminPage() {
-      add_options_page('Word Count Settings', 'Word Count', 'manage_options', 'word-count-settings-page', array($this, 'ourHTML'));
+      add_options_page('Word Count Settings', __('Word Count', 'wcpdomain'), 'manage_options', 'word-count-settings-page', array($this, 'ourHTML'));
     }
   
     function ourHTML() { ?>

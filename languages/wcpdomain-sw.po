@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Word Count plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-01 14:57+0000\n"
+"PO-Revision-Date: 2022-12-01 14:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: Swahili\n"
+"Language: sw\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.1.1\n"
+"X-Domain: wcpdomain"
+
+#. Description of the plugin
+msgid ""
+"A truly amazing plugin for post word count, and read time approximation."
+msgstr ""
+
+#: count.php:53
+msgid "characters"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://kipmyk.co.ke/"
+msgstr ""
+
+#. Author of the plugin
+msgid "mikekipruto"
+msgstr ""
+
+#: count.php:57
+msgid "minute(s) to read"
+msgstr "dakika"
+
+#: count.php:49 count.php:53
+msgid "This post has"
+msgstr ""
+
+#: count.php:57
+msgid "This will take about"
+msgstr "Ili itaongelea"
+
+#: count.php:133
+msgid "Word Count"
+msgstr ""
+
+#. Name of the plugin
+msgid "Word Count plugin"
+msgstr ""
+
+#: count.php:49
+msgid "words"
+msgstr "maneno"
